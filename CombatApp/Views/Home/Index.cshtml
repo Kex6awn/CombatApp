@@ -1,0 +1,26 @@
+﻿@model Character
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<p>The result is: you @ViewBag.Win</p>
+
+<form asp-action="Index" method="post">
+    <br>HP<input asp-for="HP" />
+    <br>Attack<input asp-for="Attack" />
+    <br>Defense<input asp-for="Defense" />
+    <br>Magic<input asp-for="Magic" />
+    <br>Skill Points: <input asp-for="SkillPoints" value="@Model.SkillPoints" />
+    <br>Level: <input asp-for="Level" value="@Model.Level"/>
+    <br>Name: <input asp-for="Name" />
+    @if(ViewBag.Win == true)
+    {
+        <button type="submit">Fight</button>
+    }
+    else
+    {
+        <a asp-action="Index">Restart?</a>
+    }
+
+</form>
